@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Titulo da pagina
+{% endblock %}
+
+{% block content %}
+        <h1>Minha Primeira view</h1>
+        <p>conteudo</p>
+
+        {% if titulo == 'Pagina flask' and outro == 'Novo texto' %}
+            <p>{{ titulo | upper}}</p>
+        {% elif titulo == 'outro valor'%}
+            <p>quase</p>
+        {% else %}
+            <p>valor errado</p>
+        {% endif %}
+
+        <p>{{ outro }}</p>
+
+        {% for elemento in lista%}
+            {% if loop.first %}
+                <ul>
+            {% endif %}
+            <li> item {{ loop.index}}: {{ elemento }}</li>
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% else %}
+                <p>lista vazia</p>
+        {% endfor %}
+{% endblock%}
